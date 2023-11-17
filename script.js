@@ -106,16 +106,22 @@ fourOnTheFloor = [
 
 onBeatSnare = [{ duration: 0.0625, start: 0, velocity: 1.0, synth: "snare" }];
 
-consts1 = ["C2", "0.0625", "1.0", "kick"];
-vars1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 16.5].map(
-  (v) => v * 0.5
-);
-
 function par(es1, es2) {
   return [es1, es2].flat();
 }
 
-kickPattern = [0b1000, 0b1000, 0b1000, 0b1010];
+kickPattern1 = [0b1000, 0b1000, 0b1000, 0b1000];
+kickPattern2 = [0b1000, 0b1000, 0b1000, 0b1010];
+kickPattern3 = [0b1000, 0b1000, 0b1010, 0b1011];
+kickPattern4 = [0b1000, 0b1000, 0b1010, 0b1001];
+kickPattern5 = [0b1000, 0b1000, 0b1010, 0b0000];
+
+kickLoop1 = [kickPattern1, kickPattern1, kickPattern1, kickPattern1].flat();
+kickLoop2 = [kickPattern1, kickPattern1, kickPattern1, kickPattern2].flat();
+kickLoop3 = [kickPattern1, kickPattern2, kickPattern5, kickPattern3].flat();
+kickLoop4 = [kickPattern1, kickPattern4, kickPattern1, kickPattern4].flat();
+kickLoop5 = [kickPattern1, kickPattern4, kickPattern1, kickPattern5].flat();
+
 snarePattern = [0b0000, 0b0000, 0b1000, 0b0000];
 
 function drumBeat(kickPattern, snarePattern) {
@@ -142,7 +148,7 @@ function drumBeat(kickPattern, snarePattern) {
   return res;
 }
 
-let g_beat = drumBeat(kickPattern, snarePattern);
+let g_beat = drumBeat(kickLoop1, snarePattern);
 let g_loop = play(g_beat, "1m", "@1m");
 
 function xxx() {
