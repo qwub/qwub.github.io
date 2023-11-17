@@ -150,8 +150,8 @@ function drumBeat(kickPattern, snarePattern) {
 
 theLoop = [kickLoop1, kickLoop1, kickLoop2, kcikLoop2, kickLoop3, kickLoop3, kickLoop4, kickLoop4, kickLoop5, kickLoop5].flat()
 
-let g_beat = drumBeat(kickLoop2, snarePattern);
-let g_loop = play(g_beat, "1m", "@1m");
+let g_beat = drumBeat(theLoop, snarePattern);
+let g_loop = play(g_beat, "40m", "@1m");
 
 function xxx() {
   //Tone.start();
